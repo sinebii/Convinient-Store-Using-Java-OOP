@@ -40,4 +40,6 @@ public class CashierImpTest {
     public void shouldCheckIfStaffIsACashier(){
         assertThrows(CashierAuthorization.class,()-> cashierImp.checkOutCustomer(staff,customer,asoStore));
     }
+
+
 }
