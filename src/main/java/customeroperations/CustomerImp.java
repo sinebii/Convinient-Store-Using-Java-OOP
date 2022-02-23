@@ -7,6 +7,16 @@ import models.Product;
 public class CustomerImp implements CustomerInt{
 
     @Override
+<<<<<<< HEAD
+=======
+
+    public void viewAllProducts(AsoStore asoStore,Customer customer){
+
+        for(Product each: asoStore.getListofProducts()){
+            System.out.println(each);
+        }
+    }
+>>>>>>> f45fa48 (My Week_two first upload)
     public void addProductToCart(AsoStore asoStore,String productName, int quantity, Customer customer){
         for(Product each: asoStore.getListofProducts()){
             if(each.getProductName().equalsIgnoreCase(productName)){
@@ -14,7 +24,11 @@ public class CustomerImp implements CustomerInt{
                         customer.getCart().put(each,quantity);
                         cartTotal(customer);
                     }else if(each.getProductQuantity()<quantity && each.getProductQuantity() >0){
+<<<<<<< HEAD
                         System.out.println("Product May be out of Stock");
+=======
+                        System.out.println("Product May be out of Stock try Reducing the product quantity");
+>>>>>>> f45fa48 (My Week_two first upload)
                         break;
                     }else{
 
@@ -44,4 +58,9 @@ public class CustomerImp implements CustomerInt{
     public void addMoneyToWallet(Customer customer, double amount){
         customer.setWalletBalance(amount);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f45fa48 (My Week_two first upload)
 }

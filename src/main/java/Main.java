@@ -58,6 +58,10 @@ public class Main {
        CashierImp cashier = new CashierImp();
        cashier.checkOutCustomer(abc,james,asoStore);
        cashier.generateReceipt(abc,james,asoStore);
+<<<<<<< HEAD
+=======
+       customerOps.viewAllProducts(asoStore,james);
+>>>>>>> f45fa48 (My Week_two first upload)
 //        System.out.println("List of Product "+asoStore.getListofProducts());
 
         //System.out.println("New Product Qty "+Arrays.toString(asoStore.getListofProducts()));
