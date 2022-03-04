@@ -32,7 +32,7 @@ public class RecruitmentImplementationTest {
     }
 
     @Test
-    public void shouldCheckIfItIsAManagerHiring() {
+    public void shouldCheckIfItIsTheManagerHiring() {
         assertThrows(ManagerException.class,()->recruitmentImplementation.hireCashier(applicant,staff,asoStore));
     }
 

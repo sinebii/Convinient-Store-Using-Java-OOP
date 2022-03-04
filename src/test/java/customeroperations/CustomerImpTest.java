@@ -1,8 +1,10 @@
 package customeroperations;
 
 import enums.Gender;
+import exceptions.OutOfStockException;
 import models.AsoStore;
 import models.Customer;
+import models.Product;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,23 +25,52 @@ public class CustomerImpTest {
     @Test
     public void customerShouldAddProductToCart() {
 
-        customerImp.addProductToCart(asoStore,"Samsung S9",5,customer);
-        assertEquals(1,customer.getCart().size());
+        customerImp.addProductToCart(asoStore,"Samsung S9",2,customer);
+        customerImp.addProductToCart(asoStore,"Samsung S9",1,customer);
+        assertEquals(3,customer.getMyCart().getProductQuantity());
     }
 
     @Test
-    public void thisShouldCalculateCustomerCartTotal() {
-        double customerB = customer.getCartTotal();
-        customerImp.addProductToCart(asoStore,"Samsung S9",5,customer);
-        double customerAfter = customer.getCartTotal();
-        assertTrue(customerB < customerAfter);
+    public void CustomerShouldRemoveProductFromCart(){
+        customerImp.addProductToCart(asoStore,"Samsung S9",2,customer);
+        assertNull(customerImp.clearCart(customer));
     }
 
     @Test
-    public void thisShouldAddMoneyToCustomerWallet() {
-        double customerBalanceBefore = customer.getWalletBalance();
+    public void customerShouldAddMoneyToWallet() {
         customer.setWalletBalance(6000.0);
+        customer.setWalletBalance(3000.00);
         double customerBalanceAfter = customer.getWalletBalance();
-        assertEquals(6000.00,customerBalanceAfter,0.00);
+        assertEquals(9000.00,customerBalanceAfter,0.00);
     }
+
+    @Test
+    public void customerShouldJoinTheQueue(){
+        customerImp.addProductToCart(asoStore,"Samsung S9",2,customer);
+        asoStore.getCustomerQueue().add(customer);
+        assertEquals(1,asoStore.getCustomerQueue().size());
+    }
+
+    @Test
+    public void shouldCheckIfProductinStoreIsGreaterThanWhatCustomerWant(){
+        int productQuantity = 0;
+
+        for(Product product: asoStore.getListofProducts()){
+            if(product.getProductName().equals("Samsung S9")){
+                if(product.getProductQuantity()>2){
+                    productQuantity = product.getProductQuantity();
+                    break;
+                }
+            }
+        }
+
+        assertTrue(productQuantity > customer.getMyCart().getProductQuantity());
+
+    }
+
+//    @Test
+//    public void shouldCheckOutOfStockException(){
+//        assertThrows(OutOfStockException.class,()->customerImp.addProductToCart(asoStore,"Samsung S9",100,customer));
+//    }
 }
+

@@ -31,7 +31,6 @@ public class RecruitmentImplementation implements RecruitmentInterface{
         }else{
 
             throw new ManagerException("Only Managers are allowed to hire a cashier");
-//          throw new managerAuthorizationException("You are not allowed to recruit a staff");
         }
     }
 }

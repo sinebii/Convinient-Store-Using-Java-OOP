@@ -4,7 +4,9 @@ import models.AsoStore;
 import models.Customer;
 import models.Staff;
 
+import java.io.IOException;
+
 public interface CashierInt {
-    void checkOutCustomer(Staff staff, Customer customer, AsoStore asoStore);
-    void generateReceipt(Staff staff,Customer customer,AsoStore asoStore);
+    void checkOutCustomer(Staff staff,Customer customer,AsoStore asoStore) throws IOException;
+
 }

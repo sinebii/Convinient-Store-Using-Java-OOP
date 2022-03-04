@@ -2,9 +2,8 @@ package models;
 import warehouse.ReadDataFromSheet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
 public class AsoStore {
     private String storeName;
     private String storeAddress;
@@ -12,6 +11,7 @@ public class AsoStore {
     private List<Applicant> listOfApplicants;
     private Product[] listofProducts;
     private List<Staff> listofStaff;
+    private PersonalizedQueue customerQueue;
 
     public AsoStore(String storeName, String storeAddress, String storeOwnner) throws IOException {
         this.storeName = storeName;
@@ -20,6 +20,7 @@ public class AsoStore {
         this.listOfApplicants = new ArrayList<>();
         this.listofProducts = ReadDataFromSheet.readProductFromExcel();
         this.listofStaff = new ArrayList<>();
+        this.customerQueue = new PersonalizedQueue();
     }
 
     public String getStoreName() {
@@ -32,6 +33,11 @@ public class AsoStore {
 
     public String getStoreAddress() {
         return storeAddress;
+    }
+
+    public PersonalizedQueue getCustomerQueue(){
+
+        return this.customerQueue;
     }
 
     public void setStoreAddress(String storeAddress) {

@@ -1,30 +1,25 @@
 package models;
 
 import common.User;
+import cashieroperations.CustomerCashierInterface;
 import enums.Gender;
 
-import java.util.HashMap;
+public class Customer extends User implements CustomerCashierInterface {
 
-public class Customer extends User {
-
-    private HashMap<Product,Integer>cart;
+    private Cart myCart;
     private double cartTotal;
     private double walletBalance;
-    public Customer() {
-    }
 
     public Customer(String personName, String personLastName, String personAddress, Gender gender) {
         super(personName, personLastName, personAddress, gender);
-        this.cart = new HashMap<>();
-        this.cartTotal = cartTotal;
+        this.myCart = new Cart();
         this.walletBalance = 0.00;
     }
 
 
-    public HashMap<Product, Integer> getCart() {
-        return cart;
+    public Cart getMyCart(){
+        return  myCart;
     }
-
     public double getCartTotal(){
 
         return cartTotal;
@@ -43,5 +38,15 @@ public class Customer extends User {
         this.walletBalance+=amount;
     }
 
-
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Customer{");
+        sb.append("myCart=").append(myCart);
+        sb.append(", cartTotal=").append(cartTotal);
+        sb.append(", product=").append(myCart.getProductName());
+        sb.append(", product Unit=").append(myCart.getProductQuantity());
+        sb.append(", walletBalance=").append(walletBalance);
+        sb.append('}');
+        return sb.toString();
+    }
 }
