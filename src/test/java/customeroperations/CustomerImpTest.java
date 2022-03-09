@@ -45,14 +45,7 @@ public class CustomerImpTest {
     }
 
     @Test
-    public void customerShouldJoinTheQueue(){
-        customerImp.addProductToCart(asoStore,"Samsung S9",2,customer);
-        asoStore.getCustomerQueue().add(customer);
-        assertEquals(1,asoStore.getCustomerQueue().size());
-    }
-
-    @Test
-    public void shouldCheckIfProductinStoreIsGreaterThanWhatCustomerWant(){
+    public void shouldCheckIfProductionStoreIsGreaterThanWhatCustomerWant(){
         int productQuantity = 0;
 
         for(Product product: asoStore.getListofProducts()){
@@ -68,9 +61,10 @@ public class CustomerImpTest {
 
     }
 
-//    @Test
-//    public void shouldCheckOutOfStockException(){
-//        assertThrows(OutOfStockException.class,()->customerImp.addProductToCart(asoStore,"Samsung S9",100,customer));
-//    }
+    @Test
+    public void shouldClearCustomerCart(){
+
+    }
+
 }
 

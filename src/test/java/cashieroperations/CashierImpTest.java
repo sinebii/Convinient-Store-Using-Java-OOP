@@ -51,7 +51,6 @@ public class CashierImpTest {
 
         customer.setWalletBalance(400000000.90);
         customerImp.addProductToCart(asoStore,"iPhone 7",1,customer);
-        customerImp.joinQueue(customer,asoStore);
         cashierImp.checkOutCustomer(staff1,customer,asoStore);
         assertEquals(0,customer.getMyCart().getProductQuantity());
         assertEquals(null,customer.getMyCart().getProductName());

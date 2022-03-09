@@ -50,4 +50,5 @@ public class RecruitmentImplementationTest {
         assertEquals(1,listOfStaffAfterAddition);
 
     }
+
 }

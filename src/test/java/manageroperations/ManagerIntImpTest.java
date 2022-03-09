@@ -24,9 +24,10 @@ public class ManagerIntImpTest {
 
     @Test
     public void shouldTestThatOnlyManagerCanAddToStore() {
-        Exception exception = assertThrows(AddProductsToStoreException.class,
-                ()-> managerIntImp.addProductsToStore(staff,asoStore));
+       assertThrows(AddProductsToStoreException.class, ()-> managerIntImp.addProductsToStore(staff,asoStore));
     }
+
+
 
 
 }

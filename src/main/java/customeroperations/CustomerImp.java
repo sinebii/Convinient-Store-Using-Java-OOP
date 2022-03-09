@@ -1,6 +1,4 @@
 package customeroperations;
-
-import exceptions.EmptyCartException;
 import exceptions.OutOfStockException;
 import models.AsoStore;
 import models.Customer;
@@ -52,12 +50,5 @@ public class CustomerImp implements CustomerInt{
         customer.getMyCart().setProductName(null);
         return null;
     }
-
-    public void joinQueue(Customer customer,AsoStore asoStore){
-        //if(asoStore.getCustomerQueue().contains(customer)) throw  new CustomerAlreadyInQueueException(customer.getPersonName()+" Already in queue");
-        if(customer.getMyCart().getProductQuantity()==0) throw new EmptyCartException("Your Cart is Empty");
-        asoStore.getCustomerQueue().add(customer);
-    }
-
 
 }

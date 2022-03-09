@@ -11,7 +11,6 @@ public class AsoStore {
     private List<Applicant> listOfApplicants;
     private Product[] listofProducts;
     private List<Staff> listofStaff;
-    private PersonalizedQueue customerQueue;
 
     public AsoStore(String storeName, String storeAddress, String storeOwnner) throws IOException {
         this.storeName = storeName;
@@ -20,7 +19,6 @@ public class AsoStore {
         this.listOfApplicants = new ArrayList<>();
         this.listofProducts = ReadDataFromSheet.readProductFromExcel();
         this.listofStaff = new ArrayList<>();
-        this.customerQueue = new PersonalizedQueue();
     }
 
     public String getStoreName() {
@@ -35,10 +33,6 @@ public class AsoStore {
         return storeAddress;
     }
 
-    public PersonalizedQueue getCustomerQueue(){
-
-        return this.customerQueue;
-    }
 
     public void setStoreAddress(String storeAddress) {
         this.storeAddress = storeAddress;
@@ -69,9 +63,6 @@ public class AsoStore {
         return listofStaff;
     }
 
-    public void setListofStaff(List<Staff> listofStaff) {
-        this.listofStaff = listofStaff;
-    }
 
     @Override
     public String toString() {
