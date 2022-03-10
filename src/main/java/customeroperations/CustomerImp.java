@@ -9,8 +9,9 @@ public class CustomerImp implements CustomerInt{
     @Override
 
     public void addProductToCart(AsoStore asoStore,String productName, int quantity, Customer customer){
-        for(Product each: asoStore.getListofProducts()){
-            if(each.getProductName().equalsIgnoreCase(productName)){
+        try{
+            for(Product each: asoStore.getListofProducts()){
+                if(each.getProductName().equalsIgnoreCase(productName)){
                     if(each.getProductQuantity()>=quantity) {
                         if (productName.equals(customer.getMyCart().getProductName())) {
                             customer.getMyCart().setProductQuantity(customer.getMyCart().getProductQuantity() + quantity);
@@ -26,6 +27,10 @@ public class CustomerImp implements CustomerInt{
 
                 }
             }
+        }catch (OutOfStockException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
         }
 
 

@@ -37,17 +37,11 @@ public class Demo {
 
 
         managerIntImp.addProductsToStore(manager,asoStore);
-        customerImp.addProductToCart(asoStore,"iPhone 7",3,paul);
-        customerImp.addProductToCart(asoStore,"iPhone 7",1,james);
-        customerImp.addProductToCart(asoStore,"iPhone 7",2,innazo);
-        customerImp.addProductToCart(asoStore,"iPhone 7",3,daniel);
-        customerImp.addProductToCart(asoStore,"iPhone 7",1,uche);
+        customerImp.addProductToCart(asoStore,"iPhone 7",6,paul);
+        customerImp.addProductToCart(asoStore,"iPhone 7",6,james);
+        customerImp.addProductToCart(asoStore,"iPhone 7",3,innazo);
+        customerImp.addProductToCart(asoStore,"Oraimo Charger",5,daniel);
 
-
-        cashierImp.checkOutCustomer(cashier,paul,asoStore);
-        cashierImp.checkOutCustomer(cashier,innazo,asoStore);
-        cashierImp.checkOutCustomer(cashier,daniel,asoStore);
-        cashierImp.checkOutCustomer(cashier,uche,asoStore);
 
         Callable<String> callable = cashierImp.checkOutCustomer(cashier,james,asoStore);
         Callable<String> callable1 = cashierImp.checkOutCustomer(cashier,paul,asoStore);
