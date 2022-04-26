@@ -61,10 +61,6 @@ public class CustomerImpTest {
 
     }
 
-    @Test
-    public void shouldClearCustomerCart(){
-
-    }
 
 }
 

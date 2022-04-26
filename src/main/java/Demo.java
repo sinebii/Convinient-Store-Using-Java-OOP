@@ -47,7 +47,7 @@ public class Demo {
         Callable<String> callable1 = cashierImp.checkOutCustomer(cashier,paul,asoStore);
         Callable<String> callable2 = cashierImp.checkOutCustomer(cashier,innazo,asoStore);
         Callable<String> callable3 = cashierImp.checkOutCustomer(cashier,daniel,asoStore);
-        Callable<String> callable4 = cashierImp.checkOutCustomer(cashier,uche,asoStore);
+        //Callable<String> callable4 = cashierImp.checkOutCustomer(cashier,uche,asoStore);
 
         Set<Callable<String>> callableSet = new HashSet<>();
 
@@ -55,7 +55,7 @@ public class Demo {
         callableSet.add(callable1);
         callableSet.add(callable2);
         callableSet.add(callable3);
-        callableSet.add(callable4);
+        //callableSet.add(callable4);
 
         ExecutorService executor = Executors.newCachedThreadPool();
         try {
